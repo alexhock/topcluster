@@ -25,6 +25,8 @@
         <module name="AlCluster" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AlCluster" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
-

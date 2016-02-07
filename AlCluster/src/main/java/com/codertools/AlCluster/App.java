@@ -16,17 +16,27 @@ public class App
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
+        try {
+            Load();
+        } catch(Exception ex) {
+            System.out.println(ex);
+        }
+        System.out.println("Finished");
     }
 
 
     public static void Load() throws FileNotFoundException, IOException
     {
-        Reader in = new FileReader("path/to/file.csv");
+        Reader in = new FileReader("d:/normalized_samples.csv");
         Iterable<CSVRecord> records = CSVFormat.EXCEL.parse(in);
         for (CSVRecord record : records) {
-            String lastName = record.get("Last Name");
-            String firstName = record.get("First Name");
+            String col1string = record.get(0);
+            String col2string = record.get(1);
+            double col1 = Double.parseDouble(col1string);
+            double col2 = Double.parseDouble(col2string);
+            double d = col1+col2;
         }
+        in.close();
 
     }
 }
